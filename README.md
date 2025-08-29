@@ -1,7 +1,7 @@
 # BFHL API
 
 A REST API for the BFHL challenge built with Express.js.
-Link--[[ https://bajaj-finser-sigma.vercel.app/](https://bajaj-finserv-rouge-chi.vercel.app/bfhl)](https://bajaj-finserv-rouge-chi.vercel.app/bfhl)
+Link--https://bajaj-finserv-rouge-chi.vercel.app/bfhl
 ## Features
 
 - POST /bfhl: Process an array of mixed data and return categorized results.
