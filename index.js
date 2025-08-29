@@ -31,21 +31,28 @@ function isSpecialCharacter(str) {
 
 
 function createAlternatingCapsString(alphabets) {
+ 
+  const reversedStrings = alphabets.map(str => str.split("").reverse().join(""));
 
-  const concatenated = alphabets.join("");
-  const reversed = concatenated.split("").reverse().join("");
+  
+  const reversedOrder = reversedStrings.reverse();
 
+  
+  const concatenated = reversedOrder.join("");
 
   let result = "";
-  for (let i = 0; i < reversed.length; i++) {
-    if (i % 2 === 0) {
-      result += reversed[i].toLowerCase();
-    } else {
-      result += reversed[i].toUpperCase();
-    }
+  for (let i = 0; i < concatenated.length; i++) {
+    result += i % 2 === 0
+      ? concatenated[i].toUpperCase()   
+      : concatenated[i].toLowerCase(); 
   }
+
   return result;
 }
+
+
+
+
 
 // POST endpoint for /bfhl
 app.post("/bfhl", (req, res) => {
@@ -114,6 +121,18 @@ app.post("/bfhl", (req, res) => {
   }
 });
 
+
+app.get("/bfhl", (req, res) => {
+  res.status(200).json({
+    operation_code: "This is GET request please hit POST request"
+  });
+});
+
+app.get("/", (req, res) => {
+  res.status(200).json({
+    operation_code: "THIS IS MY HOME ROUTE "
+  });
+});
 
 // Health check endpoint
 app.get("/health", (req, res) => {
